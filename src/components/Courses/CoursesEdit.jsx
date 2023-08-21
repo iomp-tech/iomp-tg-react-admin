@@ -8,6 +8,8 @@ import {
     ImageInput,
     BooleanInput,
     required,
+    ArrayInput,
+    SimpleFormIterator,
 } from "react-admin";
 
 import DateFnsUtils from "@date-io/date-fns";
@@ -79,6 +81,14 @@ const CoursesEdit = (props) => {
                                 />
 
                                 <TextInput
+                                    source="btnText"
+                                    label="Текст кнопки на главном экране"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                    multiline
+                                />
+
+                                <TextInput
                                     source="formTitle"
                                     label="Заголовок Формы"
                                     validate={[required()]}
@@ -98,8 +108,7 @@ const CoursesEdit = (props) => {
                                     accept="image/*"
                                     placeholder={<p>Перетащите файл сюда</p>}
                                     validate={[required()]}
-                                    style={defaultStyle}
-                                >
+                                    style={defaultStyle}>
                                     <PreviewImage source="src" />
                                 </ImageInput>
 
@@ -184,8 +193,7 @@ const CoursesEdit = (props) => {
                                                 <p>Перетащите файл сюда</p>
                                             }
                                             validate={[required()]}
-                                            style={defaultStyle}
-                                        >
+                                            style={defaultStyle}>
                                             <PreviewImage source="src" />
                                         </ImageInput>
 
@@ -209,6 +217,47 @@ const CoursesEdit = (props) => {
                                         />
                                     </>
                                 ) : null}
+
+                                <TextInput
+                                    source="programm.title"
+                                    label="Заголовок Блока `Программа курса`"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                />
+
+                                <TextInput
+                                    source="programm.description"
+                                    label="Описание Блока `Программа курса`"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                />
+
+                                <ArrayInput
+                                    source="programm.items"
+                                    label="Элементы Блока `Программа курса`"
+                                    style={defaultStyle}
+                                    validate={[required()]}>
+                                    <SimpleFormIterator>
+                                        <TextInput
+                                            label="Подзаголовок"
+                                            source="subtitle"
+                                            style={defaultStyle}
+                                            validate={[required()]}
+                                        />
+                                        <TextInput
+                                            label="Заголовок"
+                                            source="title"
+                                            style={defaultStyle}
+                                            validate={[required()]}
+                                        />
+                                        <TextInput
+                                            label="Описание"
+                                            source="description"
+                                            style={defaultStyle}
+                                            validate={[required()]}
+                                        />
+                                    </SimpleFormIterator>
+                                </ArrayInput>
                             </>
                         )}
                     </FormDataConsumer>

@@ -29,6 +29,8 @@ const myDataProfider = {
 				params.data[key].map((image, index) => {
 					formData.append(`image-${index}`, image.rawFile);
 				})
+			} else if (key === "programm") {
+				formData.append(`programm`, JSON.stringify(params.data[key]));
 			} else {
 				if (params.data[key] === null) {
 					formData.append(key, "");
@@ -60,6 +62,8 @@ const myDataProfider = {
 				if (params.data[key].rawFile) {
 					formData.append(key, params.data[key].rawFile);
 				}
+			} else if (key === "programm") {
+				formData.append(`programm`, JSON.stringify(params.data[key]));
 			} else if (key === "images") {
 				params.data[key].map((image, index) => {
 					if (image.rawFile) {

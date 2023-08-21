@@ -42,7 +42,7 @@ const TimetableEdit = (props) => {
 
                                 <TextInput
                                     source="idAwo"
-                                    label="ID группы АВО"
+                                    label="ID метки"
                                     validate={[required()]}
                                     style={defaultStyle}
                                     type="number"
@@ -79,6 +79,14 @@ const TimetableEdit = (props) => {
                                     label="Дата и время проведения"
                                     validate={[required()]}
                                     style={defaultStyle}
+                                />
+
+                                <TextInput
+                                    source="btnText"
+                                    label="Текст кнопки на главном экране"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                    multiline
                                 />
 
                                 <BooleanInput
