@@ -61,6 +61,7 @@ const CoursesCreate = (props) => {
                                         source="description"
                                         label="Описание"
                                         validate={[required()]}
+                                        style={defaultStyle}
                                         multiline
                                     />
                                 </div>
@@ -227,11 +228,12 @@ const CoursesCreate = (props) => {
                                     style={defaultStyle}
                                 />
 
-                                <TextInput
-                                    source="programm.description"
-                                    label="Описание Блока `Программа курса`"
+                                <RichTextInput
+                                    source="description"
+                                    label="Описание"
                                     validate={[required()]}
                                     style={defaultStyle}
+                                    multiline
                                 />
 
                                 <ArrayInput
@@ -252,11 +254,12 @@ const CoursesCreate = (props) => {
                                             style={defaultStyle}
                                             validate={[required()]}
                                         />
-                                        <TextInput
-                                            label="Описание"
+                                        <RichTextInput
                                             source="description"
-                                            style={defaultStyle}
+                                            label="Описание"
                                             validate={[required()]}
+                                            style={defaultStyle}
+                                            multiline
                                         />
                                     </SimpleFormIterator>
                                 </ArrayInput>
