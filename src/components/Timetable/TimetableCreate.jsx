@@ -41,7 +41,6 @@ const TimetableCreate = (props) => {
                                 <TextInput
                                     source="idAwo"
                                     label="ID метки"
-                                    validate={[required()]}
                                     style={defaultStyle}
                                     type="number"
                                 />
